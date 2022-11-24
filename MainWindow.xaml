@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Background="#777777"
         WindowStartupLocation="CenterScreen"
-        Title="Chris Titus Tech's Windows Utility" Height="800" Width="1200">
+        Title="Windows 10/11 Utility" Height="800" Width="1200">
     <Border Name="dummy" Grid.Column="0" Grid.Row="0">
         <Viewbox Stretch="Uniform" VerticalAlignment="Top">
             <Grid Background="#777777" ShowGridLines="False" Name="MainGrid">
