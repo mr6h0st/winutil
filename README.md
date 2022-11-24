@@ -1,4 +1,5 @@
-# Chris Titus Tech's Windows Utility
+# Windows 10/11 Utility
+# original project by Chris Titus Tech
 
 This Utility is a compilation of windows tasks I perform on each Windows system I use. It is meant to streamline *installs*, debloat with *tweaks*, troubleshoot with *config*, and fix Windows *updates*. I am extremely picky on any contributions to keep this project clean and efficient. 
 
