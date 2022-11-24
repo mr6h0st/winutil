@@ -7,7 +7,7 @@ $BranchToUse = 'main'
     Version 0.0.1
 #>
 # $inputXML = Get-Content "MainWindow.xaml" #uncomment for development
-$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/ChrisTitusTech/winutil/$BranchToUse/MainWindow.xaml") #uncomment for Production
+$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/mr6h0st/winutil/$BranchToUse/MainWindow.xaml") #uncomment for Production
 
 # Choco install 
 $testchoco = powershell choco -v
@@ -30,7 +30,7 @@ $configs = @{}
     "feature"
 ) | ForEach-Object {
     #$configs["$PSItem"] = Get-Content .\config\$PSItem.json | ConvertFrom-Json
-    $configs["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/ChrisTitusTech/winutil/$BranchToUse/config/$psitem.json"
+    $configs["$psitem"] = Invoke-RestMethod "https://raw.githubusercontent.com/mr6h0st/winutil/$BranchToUse/config/$psitem.json"
 }
 
 
@@ -193,7 +193,7 @@ $WPFinstall.Add_Click({
                 # Switching to winget-install from PSGallery from asheroto
                 # Source: https://github.com/asheroto/winget-installer
                 
-                Start-Process powershell.exe -Verb RunAs -ArgumentList "-command irm https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/winget.ps1 | iex | Out-Host" -WindowStyle Normal
+                Start-Process powershell.exe -Verb RunAs -ArgumentList "-command irm https://raw.githubusercontent.com/mr6h0st/winutil/main/winget.ps1 | iex | Out-Host" -WindowStyle Normal
                 
             }
             elseif (((Get-ComputerInfo).WindowsVersion) -lt "1809") {
@@ -492,7 +492,7 @@ $WPFtweaksbutton.Add_Click({
         If ( $WPFEssTweaksOO.IsChecked -eq $true ) {
             If (!(Test-Path .\ooshutup10.cfg)) {
                 Write-Host "Running O&O Shutup with Recommended Settings"
-                curl.exe -s "https://raw.githubusercontent.com/ChrisTitusTech/win10script/master/ooshutup10.cfg" -o ooshutup10.cfg
+                curl.exe -s "https://raw.githubusercontent.com/mr6h0st/win10script/master/ooshutup10.cfg" -o ooshutup10.cfg
                 curl.exe -s "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -o OOSU10.exe
             }
             ./OOSU10.exe ooshutup10.cfg /quiet
@@ -511,7 +511,7 @@ $WPFtweaksbutton.Add_Click({
                 "ALG"                                          # Application Layer Gateway Service(Provides support for 3rd party protocol plug-ins for Internet Connection Sharing)
                 "AJRouter"                                     # Needed for AllJoyn Router Service
                 "BcastDVRUserService_48486de"                  # GameDVR and Broadcast is used for Game Recordings and Live Broadcasts
-                #"BDESVC"                                      # Bitlocker Drive Encryption Service
+                "BDESVC"                                       # Bitlocker Drive Encryption Service
                 #"BFE"                                         # Base Filtering Engine (Manages Firewall and Internet Protocol security)
                 #"BluetoothUserService_48486de"                # Bluetooth user service supports proper functionality of Bluetooth features relevant to each user session.
                 #"BrokerInfrastructure"                        # Windows Infrastructure Service (Controls which background tasks can run on the system)
@@ -525,7 +525,7 @@ $WPFtweaksbutton.Add_Click({
                 "DPS"                                          # Diagnostic Policy Service (Detects and Troubleshoots Potential Problems)
                 "edgeupdate"                                   # Edge Update Service
                 "edgeupdatem"                                  # Another Update Service
-                #"EntAppSvc"                                    # Enterprise Application Management.
+                "EntAppSvc"                                    # Enterprise Application Management.
                 "Fax"                                          # Fax Service
                 "fhsvc"                                        # Fax History
                 "FontCache"                                    # Windows font cache
@@ -545,8 +545,8 @@ $WPFtweaksbutton.Add_Click({
                 "PcaSvc"                                       # Program Compatibility Assistant Service
                 "PerfHost"                                     # Remote users and 64-bit processes to query performance.
                 "PhoneSvc"                                     # Phone Service(Manages the telephony state on the device)
-                #"PNRPsvc"                                     # Peer Name Resolution Protocol (Some peer-to-peer and collaborative applications, such as Remote Assistance, may not function, Discord will still work)
-                #"p2psvc"                                      # Peer Name Resolution Protocol(Enables multi-party communication using Peer-to-Peer Grouping.  If disabled, some applications, such as HomeGroup, may not function. Discord will still work)iscord will still work)
+                "PNRPsvc"                                      # Peer Name Resolution Protocol (Some peer-to-peer and collaborative applications, such as Remote Assistance, may not function, Discord will still work)
+                "p2psvc"                                       # Peer Name Resolution Protocol(Enables multi-party communication using Peer-to-Peer Grouping.  If disabled, some applications, such as HomeGroup, may not function. Discord will still work)iscord will still work)
                 #"p2pimsvc"                                    # Peer Networking Identity Manager (Peer-to-Peer Grouping services may not function, and some applications, such as HomeGroup and Remote Assistance, may not function correctly. Discord will still work)
                 "PrintNotify"                                  # Windows printer notifications and extentions
                 "QWAVE"                                        # Quality Windows Audio Video Experience (audio and video might sound worse)
@@ -563,7 +563,7 @@ $WPFtweaksbutton.Add_Click({
                 #"StorSvc"                                     # StorSvc (usb external hard drive will not be reconized by windows)
                 "SysMain"                                      # Analyses System Usage and Improves Performance
                 "TrkWks"                                       # Distributed Link Tracking Client
-                #"WbioSrvc"                                    # Windows Biometric Service (required for Fingerprint reader / facial detection)
+                "WbioSrvc"                                     # Windows Biometric Service (required for Fingerprint reader / facial detection)
                 "WerSvc"                                       # Windows error reporting
                 "wisvc"                                        # Windows Insider program(Windows Insider will not work if Disabled)
                 #"WlanSvc"                                     # WLAN AutoConfig
@@ -571,7 +571,7 @@ $WPFtweaksbutton.Add_Click({
                 "WpcMonSvc"                                    # Parental Controls
                 "WPDBusEnum"                                   # Portable Device Enumerator Service
                 "WpnService"                                   # WpnService (Push Notifications may not work)
-                #"wscsvc"                                      # Windows Security Center Service
+                "wscsvc"                                       # Windows Security Center Service
                 "WSearch"                                      # Windows Search
                 "XblAuthManager"                               # Xbox Live Auth Manager (Disabling Breaks Xbox Live Games)
                 "XblGameSave"                                  # Xbox Live Game Save Service (Disabling Breaks Xbox Live Games)
@@ -878,7 +878,7 @@ $WPFtweaksbutton.Add_Click({
                 "BingTravel"
                 "MinecraftUWP"
                 "GamingServices"
-                # "WindowsReadingList"
+                "WindowsReadingList"
                 "GetHelp"
                 "Getstarted"
                 "Messaging"
@@ -913,7 +913,7 @@ $WPFtweaksbutton.Add_Click({
                 "MixedReality.Portal"
                 "ZuneMusic"
                 "ZuneVideo"
-                #"YourPhone"
+                "YourPhone"
                 "Getstarted"
                 "MicrosoftOfficeHub"
 
@@ -948,8 +948,8 @@ $WPFtweaksbutton.Add_Click({
                 #Optional: Typically not removed but you can if you need to
                 "Advertising"
                 #"MSPaint"
-                #"MicrosoftStickyNotes"
-                #"Windows.Photos"
+                "MicrosoftStickyNotes"
+                "Windows.Photos"
                 #"WindowsCalculator"
                 #"WindowsStore"
 
