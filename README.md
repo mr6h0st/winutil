@@ -14,7 +14,7 @@ Launch Command:
 ```
 iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mr6h0st/winutil/main/winutil.ps1'))
 ```
-If you are having TLS 1.2 Issues or You cannot find or resolve `christitus.com/win` then run with the following command:
+If you are having TLS 1.2 issues, then run with the following command:
 ```
 [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12;iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/mr6h0st/winutil/main/winutil.ps1')
 ```
