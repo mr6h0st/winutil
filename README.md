@@ -1,4 +1,4 @@
-# Windows 10/11 Utility
+# Windows 10/11 Utility - tweaked by 6h0st
 # original project by Chris Titus Tech
 
 This Utility is a compilation of windows tasks I perform on each Windows system I use. It is meant to streamline *installs*, debloat with *tweaks*, troubleshoot with *config*, and fix Windows *updates*. I am extremely picky on any contributions to keep this project clean and efficient. 
@@ -12,15 +12,11 @@ The recommended way is to right click on the start menu and select (PowerShell A
 Launch Command:
 
 ```
-iwr -useb https://christitus.com/win | iex
-```
-Or shorter Thanks to [#144](/../../issues/144)
-```
-irm christitus.com/win | iex
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mr6h0st/winutil/main/winutil.ps1'))
 ```
 If you are having TLS 1.2 Issues or You cannot find or resolve `christitus.com/win` then run with the following command:
 ```
-[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12;iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/winutil.ps1')
+[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12;iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/mr6h0st/winutil/main/winutil.ps1')
 ```
 
 EXE Wrapper for $10 @ https://www.cttstore.com/windows-toolbox
@@ -40,15 +36,3 @@ EXE Wrapper for $10 @ https://www.cttstore.com/windows-toolbox
   - System Corruption Scan
 - Updates
   - Fixes the default windows update scheme
-
-Video and Written Article walkthrough @ <https://christitus.com/windows-tool/>
-
-## Issues
-
-If you have any issues with the script please submit them to Issues tab here on GitHub and fill out the template so I can fix any bugs or make feature requests. 
-
-## Contribute Code
-
-**Any new code must be submitted to TEST BRANCH! - No merges will be performed on MAIN branch**
-
-For pull requests, be sure and document ALL changes. If you add something to the tweaks section the undo MUST also be applied to remove the new tweaks. Any tweak not following this format will be denied. Any code not well documented will be denied.
